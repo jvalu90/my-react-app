@@ -1,8 +1,14 @@
 import './App.css';
+import Title from './Title.js'
 
 function App() {
+  const names = ['Pedro', 'Juan', 'German']
   return (
-    <h1>Hello World!</h1>
+    <div>
+      {names.map(name => 
+        <Title name = {name} />
+      )};
+    </div>
   );
 }
 
