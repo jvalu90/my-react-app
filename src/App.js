@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios'
 import './App.css';
 //import Title from './Title.js'
 
@@ -8,7 +9,17 @@ class App extends Component {
     this.state = {
       name: 'Jimmy Valencia Urbano',
       terms: false,
+      names: []
     }
+
+    axios.get('http://localhost:3001/names')
+      .then(response => {
+        this.setState({
+          names: response.data
+        })
+      }).catch(error=>{
+        console.log(error);
+      })
   }
 
   render() {
@@ -22,6 +33,12 @@ class App extends Component {
           </label>
         </div>
         <button onClick={this.sayHi.bind(this)}>Say Hi!</button>
+
+        <ul>
+          {this.state.names.map(name=>
+            <li key={name}>{name}</li>
+            )}
+        </ul>
       </div>
     );
   }
