@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 import axios from 'axios'
 import './App.css';
 //import Title from './Title.js'
@@ -32,7 +34,7 @@ class App extends Component {
             <input type='checkbox' checked={this.state.terms} onClick={this.updateTerms.bind(this)} /> Accept terms and conditions
           </label>
         </div>
-        <button onClick={this.sayHi.bind(this)}>Say Hi!</button>
+        <Button variant='primary' onClick={this.sayHi.bind(this)}>Say Hi!</Button>
 
         <ul>
           {this.state.names.map(name=>
